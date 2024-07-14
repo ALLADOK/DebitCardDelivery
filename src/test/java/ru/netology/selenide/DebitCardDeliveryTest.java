@@ -4,6 +4,7 @@ package ru.netology.selenide;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
 import java.time.Duration;
@@ -28,6 +29,7 @@ public class DebitCardDeliveryTest {
         $("[data-test-id='name'] input").setValue("Василий Иванов");
         $("[data-test-id='phone'] input").setValue("+79054123456");
         $("[data-test-id='agreement']").click();
+        $("button.button").click();
         $("[data-test-id=notification] .notification__content")
                 .shouldBe(Condition.visible, Duration.ofSeconds(15))
                 .shouldHave(Condition.text("Встреча успешно забронирована на " + planningDate));
